@@ -31,7 +31,7 @@ Self-Driving Car Engineer Nanodegree Program
 * Not a dependency but read the [DATA.md](./DATA.md) for a description of the data sent back from the simulator.
 
 
-** The Model **
+## The Model
 A standard bicycle model is used to model the vehicle motion. The bicycle model utilizes the
 vehicle position, velocity, and orientation and incorporates actuators that can introduce an
 orientation change ( and a velocity change ( a ) in the following motion δ) update equations:
@@ -52,7 +52,7 @@ where the function f(x) is the polynomial fit to the waypoints along the center 
 The state of the vehicle is then defined to be a 6-dimensional vector:
 [x, y, ψ, v, cte, eψ]
 
-** Timestep Length and Elapsed Duration **
+## Timestep Length and Elapsed Duration
 The vehicle state and the target trajectory must both be discretized by the chosen timestep
 length, and the amount of points is defined by the chosen elapsed duration. For this project, a
 timestep length of dt = 0.1 seconds was chosen and an elapsed duration of 1 second was used.
@@ -70,7 +70,7 @@ computation cost by increasing dt to 0.2, but this resulted in a more conservati
 drove very slowly and really hugged the inside of corners.
 
 
-** Polynomial Fitting and MPC Preprocessing **
+## Polynomial Fitting and MPC Preprocessing
 In order to simplify the calculation of the cross-track error, the waypoints are transformed from
 the global reference frame to the reference frame of the vehicle. A 3rd degree polynomial is
 then fit to the transformed way points.
@@ -80,7 +80,7 @@ is then simply equal to the value of polynomial at x = 0, and the epsi value is 
 negative of the slope of the tangent to the polynomial at x = 0 .
 
 
-** Model Predictive Control with Latency **
+## Model Predictive Control with Latency
 The latency between decision and actuation was handled by taking the current vehicle state,
 simulating the state change over the duration of the latency, and then using this updated state
 as the initial state.
